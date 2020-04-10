@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext, Fragment } from "react";
+import AuthContext from "../context/authContext/authContext";
 import { Link } from "react-router-dom";
 const Home = () => {
+  const { userAuth } = useContext(AuthContext);
   return (
     <section className="jumbotron text-center" style={{ height: "100vh" }}>
       <div className="container">
@@ -13,12 +15,21 @@ const Home = () => {
           send and recieve anonymous compliments easily for free!
         </p>
         <div className="d-flex justify-content-center">
-          <Link to="/login" className="btn btn-primary mx-2">
-            Login
-          </Link>
-          <Link to="/register" className="btn btn-primary mx-2">
-            Register
-          </Link>
+          {userAuth ? (
+            <Link to="/Profile" className="btn btn-primary">
+              Profile
+            </Link>
+          ) : (
+            <Fragment>
+              {" "}
+              <Link to="/login" className="btn btn-primary mx-2">
+                Login
+              </Link>
+              <Link to="/register" className="btn btn-primary mx-2">
+                Register
+              </Link>
+            </Fragment>
+          )}
         </div>
       </div>
     </section>

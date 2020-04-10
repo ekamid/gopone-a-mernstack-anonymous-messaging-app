@@ -92,15 +92,10 @@ Router.post(
         },
       };
 
-      jwt.sign(
-        payload,
-        process.env.JWT_SECRET,
-        { expiresIn: 3600 },
-        (error, token) => {
-          if (error) throw error;
-          res.send({ token });
-        }
-      );
+      jwt.sign(payload, process.env.JWT_SECRET, (error, token) => {
+        if (error) throw error;
+        res.send({ token });
+      });
     } catch (err) {
       res.status(500).json({ error: [{ msg: "Server Error" }] });
     }
