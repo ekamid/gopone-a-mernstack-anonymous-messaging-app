@@ -16,10 +16,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //routes
-app.use("/register", require("./routes/register"));
-app.use("/auth", require("./routes/auth"));
-app.use("/messages", require("./routes/messages"));
-app.use("/", require("./routes/message"));
+app.use("/api/register", require("./routes/register"));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/messages", require("./routes/messages"));
+app.use("/api/", require("./routes/message"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

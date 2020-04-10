@@ -24,20 +24,28 @@ Router.get("/:username", async (req, res) => {
     }
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ error: [{ msg: "Server Error" }] });
+    throw err;
+    //res.status(500).json({ error: [{ msg: "Server Error" }] });
   }
 });
 
+/*
+    GET USER,
+    Access Private
+*/
 Router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
     res.json(user);
   } catch (err) {
-    console.log(err.message);
     res.status(500).json({ error: [{ msg: "Server Error" }] });
   }
 });
 
+/*
+    Login user
+    Access Private
+*/
 Router.post(
   "/",
   [
@@ -59,6 +67,7 @@ Router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ error: errors.array() });
     }
+
     const { username, password } = req.body;
 
     try {
@@ -82,6 +91,8 @@ Router.post(
           id: user.id,
         },
       };
+
+      console.log(payload);
 
       jwt.sign(
         payload,

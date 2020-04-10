@@ -13,10 +13,10 @@ const Home = () => {
           send and recieve anonymous compliments easily for free!
         </p>
         <div className="d-flex justify-content-center">
-          <Link to="register" className="btn btn-primary mx-2">
+          <Link to="/login" className="btn btn-primary mx-2">
             Login
           </Link>
-          <Link to="register" className="btn btn-primary mx-2">
+          <Link to="/register" className="btn btn-primary mx-2">
             Register
           </Link>
         </div>

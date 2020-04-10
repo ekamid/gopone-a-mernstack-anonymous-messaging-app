@@ -6,7 +6,6 @@ import {
   SEND_MESSAGE,
   GET_MESSAGES,
   REMOVE_MESSAGE,
-  CLEAR_MESSAGES,
   SET_ERROR,
 } from "../types";
 
@@ -18,8 +17,9 @@ const MainState = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(messageReducer, initialState);
+
   const getMessages = async () => {
-    const res = await axios.get("/messages");
+    const res = await axios.get("/api/messages");
     try {
       dispatch({
         type: GET_MESSAGES,
@@ -39,7 +39,7 @@ const MainState = ({ children }) => {
       "Content-Type": "application/json",
     };
     try {
-      const res = await axios.post(`/${username}/message`, message, config);
+      const res = await axios.post(`/api/${username}/message`, message, config);
       dispatch({
         type: SEND_MESSAGE,
         payload: res.data,
@@ -53,25 +53,11 @@ const MainState = ({ children }) => {
   };
 
   const removeMessage = async (id) => {
-    await axios.delete(`/messages/${id}`);
+    await axios.delete(`/api/messages/${id}`);
     try {
       dispatch({
         type: REMOVE_MESSAGE,
         payload: id,
-      });
-    } catch (err) {
-      dispatch({
-        type: SET_ERROR,
-        payload: err,
-      });
-    }
-  };
-
-  const clearMessages = async (userId) => {
-    await axios.delete(`/messages/${userId}`);
-    try {
-      dispatch({
-        type: CLEAR_MESSAGES,
       });
     } catch (err) {
       dispatch({
@@ -90,7 +76,6 @@ const MainState = ({ children }) => {
         sendMessage,
         getMessages,
         removeMessage,
-        clearMessages,
       }}
     >
       {children}

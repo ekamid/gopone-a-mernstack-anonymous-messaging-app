@@ -19,6 +19,9 @@ export default (state, action) => {
         userExist: action.payload,
       };
     case SET_USER:
+      // localStorage.setItem("username", action.payload.username);
+      // localStorage.setItem("id", action.payload._id);
+      localStorage.setItem("userAuth", state.userAuth);
       return {
         ...state,
         user: action.payload.username,
@@ -29,6 +32,7 @@ export default (state, action) => {
     case SUCCESS_REGISTER:
     case SUCCESS_LOGIN:
       localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("userAuth", state.userAuth);
       return {
         ...state,
         userAuth: true,
@@ -38,14 +42,15 @@ export default (state, action) => {
     case FAIL_REGISTER:
     case AUTH_ERROR:
       localStorage.removeItem("token");
+      localStorage.removeItem("userAuth");
       return {
         ...state,
-        userAuth: null,
         errors: action.payload,
       };
 
     case LOGOUT:
       localStorage.removeItem("token");
+      localStorage.removeItem("userAuth");
       return {
         ...state,
         userAuth: null,
@@ -54,6 +59,7 @@ export default (state, action) => {
       };
 
     case SET_ERROR:
+      console.log(action.payload);
       return {
         ...state,
         errors: action.payload,

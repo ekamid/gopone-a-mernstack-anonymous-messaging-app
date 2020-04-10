@@ -1,19 +1,21 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const dateAndTime = require("date-and-time");
+const date = new Date();
 
 const messageShema = Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "users"
+    ref: "users",
   },
   text: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
-    type: Date,
-    default: Date()
-  }
+    type: String,
+    default: dateAndTime.format(date, "hh:mm:ssA, MM-DD-YYYY"),
+  },
 });
 
 module.exports = mongoose.model("message", messageShema);

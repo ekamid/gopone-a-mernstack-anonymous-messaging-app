@@ -6,9 +6,9 @@ const auth = (req, res, next) => {
   const token = req.header("auth-token");
 
   if (!token) {
-    return res.status(401).json({
-      msg: "No Token, Access Denied"
-    });
+    return res
+      .status(401)
+      .json({ error: [{ msg: "No Token, Access Denied" }] });
   }
 
   try {
@@ -16,9 +16,7 @@ const auth = (req, res, next) => {
     req.user = decoded.user;
     next();
   } catch (err) {
-    res.status(401).json({
-      msg: "Invalid Token"
-    });
+    res.status(401).json({ error: [{ msg: "Invalid Token" }] });
   }
 };
 

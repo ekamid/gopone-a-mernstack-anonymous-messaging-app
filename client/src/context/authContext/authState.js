@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 import AuthContext from "./authContext";
 import AuthReducer from "./authReducer";
@@ -27,11 +27,16 @@ const AuthState = (props) => {
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
+  useEffect(() => {
+    if (localStorage.getItem("token") && localStorage.getItem("userAuth")) {
+      getUser();
+    }
+  }, []);
+
   //checkUser
   const checkUser = async (username) => {
     try {
-      const res = await axios.get(`/auth/${username}`);
-      console.log(username);
+      const res = await axios.get(`/api/auth/${username}`);
       dispatch({
         type: CHECK_USER,
         payload: res.data.exist,
@@ -51,7 +56,7 @@ const AuthState = (props) => {
     }
 
     try {
-      const res = await axios.get("/auth");
+      const res = await axios.get("/api/auth");
       dispatch({
         type: SET_USER,
         payload: res.data,
@@ -73,7 +78,7 @@ const AuthState = (props) => {
     };
 
     try {
-      const res = await axios.post("/register", userData, config);
+      const res = await axios.post("/api/register", userData, config);
       dispatch({
         type: SUCCESS_REGISTER,
         payload: res.data,
@@ -95,7 +100,7 @@ const AuthState = (props) => {
     };
 
     try {
-      const res = await axios.post("/auth", userData, config);
+      const res = await axios.post("/api/auth", userData, config);
       dispatch({
         type: SUCCESS_LOGIN,
         payload: res.data,
@@ -131,6 +136,7 @@ const AuthState = (props) => {
     <AuthContext.Provider
       value={{
         user: state.user,
+        userId: state.userId,
         userAuth: state.userAuth,
         errors: state.errors,
         userExist: state.userExist,

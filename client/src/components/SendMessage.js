@@ -1,17 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import MessageContext from "../context/messageContext/messageContext";
+import ErrorMessage from "./ErrorMessage";
 
 const SendMessage = () => {
   const { sendMessage } = useContext(MessageContext);
   const [message, setMessage] = useState({ text: "" });
   const [charCounts, setCharCounts] = useState(0);
   const [warning, setWarning] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const { username } = useParams();
   const maxChars = 300;
   const { text } = message;
+
   const handleChange = (e) => {
     setWarning("");
+    setSuccessMessage("");
     if (
       charCounts !== maxChars ||
       window.event.inputType === "deleteContentBackward"
@@ -31,6 +35,7 @@ const SendMessage = () => {
     } else {
       sendMessage(username, message);
       setMessage({ text: "" });
+      setSuccessMessage("Message Sent..");
     }
   };
 
@@ -60,14 +65,19 @@ const SendMessage = () => {
                   ></textarea>
                 </div>
                 {warning === "" ? null : (
+                  <ErrorMessage errors={{ error: [{ msg: warning }] }} />
+                )}
+                {successMessage === "" ? null : (
                   <p
                     style={{
                       fontSize: "14px",
                       fontWeight: "bold",
-                      color: "red",
+                      color: "#ffffff",
+                      background: "#92BD29",
+                      padding: "5px",
                     }}
                   >
-                    {warning}
+                    {successMessage}
                   </p>
                 )}
                 <p style={{ fontSize: "18px" }}>

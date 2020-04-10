@@ -1,20 +1,25 @@
 import React, { useEffect, useContext } from "react";
 import MessageContext from "../context/messageContext/messageContext";
+// import AuthContext from "../context/authContext/authContext";
 import { Link } from "react-router-dom";
 import Message from "./Message";
 const Messages = () => {
-  const { messages, loading, clearMessages, getMessages } = useContext(
-    MessageContext
-  );
+  const { messages, loading, getMessages } = useContext(MessageContext);
+  // const { userId } = useContext(AuthContext);
+
   useEffect(() => {
     getMessages();
   }, [getMessages]);
-  const handleClearMessages = () => {
-    let confirm = window.confirm("Want to clear all messages?");
-    if (confirm) {
-      clearMessages();
-    }
-  };
+
+  // const handleClearMessages = () => {
+  //   console.log(userId);
+  //   clearMessages(userId);
+  //   console.log("clicked on clear");
+  //   // let confirm = window.confirm("Want to clear all messages?");
+  //   // if (confirm) {
+  //   //   clearMessages();
+  //   // }
+  // };
   return (
     <div className="container">
       <div className="row">

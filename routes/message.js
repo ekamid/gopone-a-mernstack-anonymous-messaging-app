@@ -27,7 +27,7 @@ Router.post(
       );
 
       if (!user) {
-        res.json({ msg: "User does not found" });
+        res.json({ error: [{ msg: "User does not found" }] });
       }
 
       let message = new Message({
@@ -35,10 +35,10 @@ Router.post(
         text,
       });
       message = await message.save();
-      res.json(message);
+      res.status(200).json({ success: { status: true } });
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server Error");
+      res.status(500).json({ error: [{ msg: "Server Error" }] });
     }
   }
 );

@@ -1,5 +1,6 @@
 const Router = require("express").Router();
 const auth = require("../middleware/auth");
+
 //Message Model
 const Message = require("../models/Message");
 
@@ -14,7 +15,7 @@ Router.get("/", auth, async (req, res) => {
     res.json(messages);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json({ error: [{ msg: "Server Error" }] });
   }
 });
 
@@ -26,16 +27,13 @@ Router.delete("/:id", auth, async (req, res) => {
   try {
     let message = await Message.findById(req.params.id);
     if (!message) {
-      return res.status(404).json({
-        msg: "Message Not Found",
-      });
+      return res.status(404).json({ error: [{ msg: "Message Not Found" }] });
     }
 
-    await Message.findOneAndDelete(req.params.id);
-    res.send("Message Removed");
+    await Message.findByIdAndDelete(req.params.id);
+    res.status(200).json({ success: { status: true } });
   } catch (err) {
-    console.errors(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json({ error: [{ msg: "Server Error" }] });
   }
 });
 

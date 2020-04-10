@@ -2,14 +2,13 @@ import React from "react";
 
 const ErrorMessage = (props) => {
   const { errors } = props;
-  console.log(errors);
   return (
     <p
       style={{
         fontSize: "14px",
         fontWeight: "bold",
         color: "#ffffff",
-        background: "#F7645C",
+        background: "#2ECC71",
         padding: "5px",
       }}
     >
