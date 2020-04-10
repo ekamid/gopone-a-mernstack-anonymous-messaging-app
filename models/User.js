@@ -5,12 +5,13 @@ const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
-    required: true
+    lowercase: true,
+    required: true,
   },
   password: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("user", userSchema);

@@ -1,7 +1,7 @@
 const Router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { check, validationResult } = require("express-validator");
+const { check, validationResult, body } = require("express-validator");
 
 //User model
 const User = require("../models/User");
@@ -26,6 +26,7 @@ Router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ error: errors.array() });
     }
+
     const { username, password } = req.body;
 
     try {
