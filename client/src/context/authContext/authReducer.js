@@ -19,8 +19,6 @@ export default (state, action) => {
         userExist: action.payload,
       };
     case SET_USER:
-      // localStorage.setItem("username", action.payload.username);
-      // localStorage.setItem("id", action.payload._id);
       localStorage.setItem("userAuth", state.userAuth);
       return {
         ...state,

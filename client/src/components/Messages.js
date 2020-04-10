@@ -1,25 +1,15 @@
 import React, { useEffect, useContext } from "react";
 import MessageContext from "../context/messageContext/messageContext";
-// import AuthContext from "../context/authContext/authContext";
 import { Link } from "react-router-dom";
 import Message from "./Message";
+
 const Messages = () => {
   const { messages, loading, getMessages } = useContext(MessageContext);
-  // const { userId } = useContext(AuthContext);
 
   useEffect(() => {
     getMessages();
   }, [getMessages]);
 
-  // const handleClearMessages = () => {
-  //   console.log(userId);
-  //   clearMessages(userId);
-  //   console.log("clicked on clear");
-  //   // let confirm = window.confirm("Want to clear all messages?");
-  //   // if (confirm) {
-  //   //   clearMessages();
-  //   // }
-  // };
   return (
     <div className="container">
       <div className="row">
@@ -41,22 +31,6 @@ const Messages = () => {
                 ))
               )}
               <hr className="my-4" />
-              {/* {messages.length === 0 ? (
-                <button
-                  onClick={handleClearMessages}
-                  className="btn btn-disabled btn-lg btn-outline-danger btn-block text-uppercase"
-                  disabled
-                >
-                  Clear All
-                </button>
-              ) : (
-                <button
-                  onClick={handleClearMessages}
-                  className="btn btn-lg btn-outline-danger btn-block text-uppercase"
-                >
-                  Clear All
-                </button>
-              )} */}
               <Link
                 className="btn btn-lg btn-outline-warning btn-block text-uppercase"
                 to="/profile"

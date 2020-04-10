@@ -13,6 +13,7 @@ const MainState = ({ children }) => {
   const initialState = {
     messages: [],
     loading: true,
+    success: false,
     errors: null,
   };
 

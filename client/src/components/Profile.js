@@ -29,7 +29,7 @@ const Profile = () => {
               <button
                 className="btn btn-lg btn-outline-info btn-block text-uppercase"
                 onClick={async () => {
-                  const profileLink = `http://localhost:3000/${user}`;
+                  const profileLink = `https://gopone.herokuapp.com/${user}`;
                   try {
                     await navigator.clipboard.writeText(profileLink);
                     alert("Profile Link Copied To Clipboard");
