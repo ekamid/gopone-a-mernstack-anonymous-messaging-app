@@ -21,7 +21,7 @@ const AuthState = (props) => {
     user: null,
     userId: null,
     userAuth: null,
-    userExist: false,
+    userExist: null,
     errors: null,
   };
 

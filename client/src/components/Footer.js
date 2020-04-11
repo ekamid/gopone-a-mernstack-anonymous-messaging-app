@@ -3,16 +3,16 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="text-center">
-      <p>
-        <a className="text-dark" href="/">
+      <div>
+        <a className="text-light" href="/">
           Home
         </a>{" "}
         ||{" "}
-        <a href="/profile" className="text-dark">
+        <a className="text-light" href="/profile">
           Profile
         </a>
-        ||© Gopone - 2020{" "}
-      </p>
+      </div>
+      <p className="text-light">© Gopone - 2020 </p>
     </div>
   );
 };

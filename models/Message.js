@@ -14,7 +14,7 @@ const messageShema = Schema({
   },
   date: {
     type: String,
-    default: dateAndTime.format(date, "hh:mm:ssA, MM-DD-YYYY"),
+    default: dateAndTime.format(date, "hh:mm:ss A, MM-DD-YYYY"),
   },
 });
 

@@ -16,7 +16,6 @@
   font-size: 1.5rem;
 }
 
-.card-title {}
 
 .card-signin .card-body {
   padding: 2rem;
@@ -106,6 +105,26 @@
   color: white;
   background-color: #3b5998;
 }
+
+
+/*Small components styles */
+.success-messages {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgba(65, 218, 45, 0.829);
+
+}
+
+.error-messages {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #F7645C;
+  padding: "5px";
+}
+
+
 
 /* Fallback for Edge
 -------------------------------------------------- */

@@ -20,6 +20,23 @@ Router.get("/", auth, async (req, res) => {
 });
 
 /*
+    GET messages in reverse,
+    Access Private
+*/
+
+Router.get("/reverse", auth, async (req, res) => {
+  try {
+    const messages = await (
+      await Message.find({ user: req.user.id })
+    ).reverse();
+    res.json(messages);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ error: [{ msg: "Server Error" }] });
+  }
+});
+
+/*
     DELETE message,
     Access Private
 */

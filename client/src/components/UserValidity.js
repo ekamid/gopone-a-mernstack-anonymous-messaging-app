@@ -11,7 +11,27 @@ const UserValidity = () => {
     checkUser(username);
   }, [username, checkUser]);
   return (
-    <Fragment>{userExist ? <SendMessage /> : <UserDoesNotExist />}</Fragment>
+    <Fragment>
+      {userExist === null ? (
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-9 col-md-7 col-lg-7 mx-auto">
+              <div className="card card-signin my-5">
+                <div className="card-body">
+                  <h2 className="card-title text-center text-warning">
+                    Loading
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <Fragment>
+          {userExist ? <SendMessage /> : <UserDoesNotExist />}{" "}
+        </Fragment>
+      )}
+    </Fragment>
   );
 };
 

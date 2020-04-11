@@ -68,17 +68,7 @@ const SendMessage = () => {
                   <ErrorMessage errors={{ error: [{ msg: warning }] }} />
                 )}
                 {successMessage === "" ? null : (
-                  <p
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "bold",
-                      color: "#ffffff",
-                      background: "#92BD29",
-                      padding: "5px",
-                    }}
-                  >
-                    {successMessage}
-                  </p>
+                  <p className="success-messages">{successMessage}</p>
                 )}
                 <p style={{ fontSize: "18px" }}>
                   <span style={{ color: "red" }}>{maxChars - charCounts}</span>{" "}
@@ -93,7 +83,7 @@ const SendMessage = () => {
               </form>
               <Link
                 className="btn btn-lg btn-outline-warning btn-block text-uppercase mt-2"
-                to="/profile"
+                to="/"
               >
                 Go Back To Home
               </Link>
