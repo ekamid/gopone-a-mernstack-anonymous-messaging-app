@@ -122,19 +122,18 @@ section {
 }
 
 .jumbotron>.container>h1 {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   color: #b590ca;
   font-family: 'Comic Neue', cursive;
-  font-size: 8rem;
+  font-size: 4rem;
   font-weight: lighter;
   text-transform: uppercase;
 }
 
 .jumbotron>.container>p {
-  padding: 10px;
-  margin: 10px 5px;
+  margin: 8px 4px;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   background-color: #AC4AFE;
   border-radius: 5px;

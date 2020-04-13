@@ -10,10 +10,9 @@ const Home = () => {
         <h1>Gopone</h1>
         <h3>Send Secret Anonymous Messages Online</h3>
         <p>
-          Gopone is an interactive anonymous messaging app with a dare game.
-          Create your Profile Link and Send it to all your contacts to check
-          what do your friends think about you. With the help of Kubool, you can
-          send and recieve anonymous compliments easily for free!
+          Gopone is an interactive anonymous messaging App. Create your Profile
+          Link and Send it to all your contacts to check what do your friends
+          think about you.
         </p>
         <div className="d-flex justify-content-center mt-4">
           {userAuth ? (
