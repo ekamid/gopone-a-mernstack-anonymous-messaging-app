@@ -3,6 +3,10 @@
   --input-padding-y: .75rem;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .card-signin {
   border: 0;
   border-radius: 1rem;
@@ -120,6 +124,8 @@ section {
 .jumbotron>.container>h1 {
   margin-bottom: 10px;
   color: #b590ca;
+  font-family: 'Comic Neue', cursive;
+  font-size: 8rem;
   font-weight: lighter;
   text-transform: uppercase;
 }
@@ -127,6 +133,7 @@ section {
 .jumbotron>.container>p {
   padding: 10px;
   margin: 10px 5px;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   background-color: #AC4AFE;

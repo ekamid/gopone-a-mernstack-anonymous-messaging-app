@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const { userAuth } = useContext(AuthContext);
   return (
-    <section className="jumbotron">
+    <section className="jumbotron p-10">
       <div className="d-flex flex-column container">
         <h1>Gopone</h1>
         <h3>Send Secret Anonymous Messages Online</h3>

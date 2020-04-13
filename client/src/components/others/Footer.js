@@ -15,6 +15,7 @@ const Footer = () => {
         <a
           className="text-light"
           target="_blank"
+          rel="noopener noreferrer"
           href="https://github.com/ekamid/gopone-a-mernstack-anonymous-messaging-app"
         >
           Github
