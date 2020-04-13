@@ -34,7 +34,9 @@ Router.post(
         user: user.id,
         text,
       });
+
       message = await message.save();
+
       res.status(200).json(message);
     } catch (err) {
       console.error(err.message);

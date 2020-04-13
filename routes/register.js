@@ -16,11 +16,12 @@ Router.post(
       .isLength({
         min: 5,
       })
-      .custom((value) => !/\s/.test(value)),
+      .custom((value) => !/\s/.test(value)), //space free or not
     check("password", "Password have to be minimum 6 characters").isLength({
       min: 6,
     }),
   ],
+
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -53,15 +54,10 @@ Router.post(
         },
       };
 
-      jwt.sign(
-        payload,
-        process.env.JWT_SECRET,
-        { expiresIn: 3600 },
-        (error, token) => {
-          if (error) throw error;
-          res.send({ token });
-        }
-      );
+      jwt.sign(payload, process.env.JWT_SECRET, (error, token) => {
+        if (error) throw error;
+        res.send({ token });
+      });
     } catch (err) {
       console.log(err.message);
       res.status(500).json({

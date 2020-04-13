@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, Fragment } from "react";
 import { useParams } from "react-router-dom";
-import AuthContext from "../context/authContext/authContext";
-import SendMessage from "./SendMessage";
+import AuthContext from "../../context/authContext/authContext";
+import SendMessage from "../messages/SendMessage";
 import UserDoesNotExist from "./UserDoesNotExist";
 
 const UserValidity = () => {
@@ -19,7 +19,7 @@ const UserValidity = () => {
               <div className="card card-signin my-5">
                 <div className="card-body">
                   <h2 className="card-title text-center text-warning">
-                    Loading
+                    Checking
                   </h2>
                 </div>
               </div>

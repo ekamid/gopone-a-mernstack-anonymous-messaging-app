@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import MessageContext from "../context/messageContext/messageContext";
+import MessageContext from "../../context/messageContext/messageContext";
 
 const Message = ({ message }) => {
   const { removeMessage } = useContext(MessageContext);
   const { text, date, _id } = message;
-  // console.log(_id);
+
   return (
     <div className="card border-success mb-3">
       <div className="card-body text-success">

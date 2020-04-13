@@ -1,7 +1,7 @@
 {
   "name": "anonymous-message-app",
-  "version": "1.0.1",
-  "description": "It's a simple anonymous messaging app",
+  "version": "1.0.2",
+  "description": "A simple anonymous messaging MERN app",
   "main": "server.js",
   "scripts": {
     "build": "npm run build --prefix client",
@@ -27,12 +27,14 @@
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^4.0.1",
+    "bootstrap": "^4.4.1",
     "concurrently": "^5.1.0",
     "date-and-time": "^0.13.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.5"
+    "mongoose": "^5.9.5",
+    "reactstrap": "^8.4.1"
   }
 }

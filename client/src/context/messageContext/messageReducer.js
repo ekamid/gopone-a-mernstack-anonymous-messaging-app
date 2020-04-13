@@ -12,14 +12,18 @@ export default (state, { type, payload }) => {
     case GET_MESSAGES:
       return {
         ...state,
-        messages: payload,
+        messages:
+          payload.sortType === "asc" ? payload.data : payload.data.reverse(),
         loading: false,
       };
 
     case SEND_MESSAGE:
       return {
         ...state,
-        messages: [...state.messages, payload],
+        messages: [
+          ...state.messages,
+          { text: payload.text, date: payload.date },
+        ],
       };
 
     case REMOVE_MESSAGE:

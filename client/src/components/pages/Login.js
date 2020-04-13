@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import AuthContext from "../context/authContext/authContext";
-import ErrorMessage from "./ErrorMessage";
+import AuthContext from "../../context/authContext/authContext";
+import Alert from "../others/Alert";
 
 const Login = (props) => {
   const { loginUser, userAuth, errors, clearError } = useContext(AuthContext);
@@ -78,7 +78,12 @@ const Login = (props) => {
                   Sign in
                 </button>
                 <hr className="my-2" />
-                {errors === null ? null : <ErrorMessage errors={errors} />}
+                {errors === null ? null : (
+                  <Alert
+                    alertType="alert-danger"
+                    alertMessage={errors.error[0].msg} //.error[0].msg
+                  />
+                )}
                 <Link
                   to="/register"
                   style={{ fontSize: "16px" }}

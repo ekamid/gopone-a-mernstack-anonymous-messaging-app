@@ -14,21 +14,18 @@ const MainState = ({ children }) => {
   const initialState = {
     messages: [],
     loading: true,
-    sortType: "asc",
+    sortType: "dsc",
     errors: null,
   };
 
   const [state, dispatch] = useReducer(messageReducer, initialState);
 
   const getMessages = async (sortType) => {
-    const res =
-      sortType === "asc"
-        ? await axios.get("/api/messages")
-        : await axios.get("/api/messages/reverse");
+    const res = await axios.get("/api/messages");
     try {
       dispatch({
         type: GET_MESSAGES,
-        payload: res.data,
+        payload: { data: res.data, sortType },
       });
     } catch (err) {
       dispatch({
@@ -73,6 +70,7 @@ const MainState = ({ children }) => {
   };
 
   const sortMessages = (sortType) => {
+    console.log("clicked on sort message state");
     dispatch({
       type: SORT_MESSAGES,
       payload: sortType,

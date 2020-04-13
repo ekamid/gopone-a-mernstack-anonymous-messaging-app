@@ -3,7 +3,6 @@
   --input-padding-y: .75rem;
 }
 
-
 .card-signin {
   border: 0;
   border-radius: 1rem;
@@ -107,24 +106,41 @@
 }
 
 
-/*Small components styles */
-.success-messages {
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: rgba(65, 218, 45, 0.829);
-
+/*Home*/
+section {
+  height: 100vh;
 }
 
-.error-messages {
-  font-size: 14px;
-  font-weight: bold;
+.jumbotron {
+  background-color: #5D4384;
   color: #ffffff;
-  background-color: #F7645C;
-  padding: "5px";
+  text-align: center;
 }
 
+.jumbotron>.container>h1 {
+  margin-bottom: 10px;
+  color: #b590ca;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
 
+.jumbotron>.container>p {
+  padding: 10px;
+  margin: 10px 5px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  background-color: #AC4AFE;
+  border-radius: 5px;
+}
+
+.alert {
+  padding: .50rem;
+}
+
+.alert p {
+  font-size: 16px;
+  margin: 0;
+}
 
 /* Fallback for Edge
 -------------------------------------------------- */

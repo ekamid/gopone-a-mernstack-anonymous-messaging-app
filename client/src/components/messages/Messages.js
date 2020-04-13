@@ -1,6 +1,8 @@
 import React, { useEffect, useContext, Fragment } from "react";
-import MessageContext from "../context/messageContext/messageContext";
-import SortBtn from "./SortBtn";
+import MessageContext from "../../context/messageContext/messageContext";
+import SortBtn from "./btn/SortBtn";
+import RefreshBtn from "./btn/RefreshBtn";
+
 import { Link } from "react-router-dom";
 import Message from "./Message";
 
@@ -11,7 +13,7 @@ const Messages = () => {
 
   useEffect(() => {
     getMessages(sortType);
-  }, [getMessages, sortType]);
+  }, [sortType]);
 
   return (
     <div className="container">
@@ -29,7 +31,10 @@ const Messages = () => {
                 </h2>
               ) : (
                 <Fragment>
-                  <SortBtn />
+                  <div className="d-flex justify-content-end">
+                    <RefreshBtn />
+                    <SortBtn />
+                  </div>
                   {messages.map((message) => (
                     <Message key={message._id} message={message} />
                   ))}

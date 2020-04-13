@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import MessageContext from "../context/messageContext/messageContext";
-import ErrorMessage from "./ErrorMessage";
+import MessageContext from "../../context/messageContext/messageContext";
+import Alert from "../others/Alert";
 
 const SendMessage = () => {
   const { sendMessage } = useContext(MessageContext);
+
   const [message, setMessage] = useState({ text: "" });
   const [charCounts, setCharCounts] = useState(0);
   const [warning, setWarning] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const { username } = useParams();
   const maxChars = 300;
+
   const { text } = message;
 
   const handleChange = (e) => {
@@ -65,10 +67,13 @@ const SendMessage = () => {
                   ></textarea>
                 </div>
                 {warning === "" ? null : (
-                  <ErrorMessage errors={{ error: [{ msg: warning }] }} />
+                  <Alert alertType="alert-warning" alertMessage={warning} />
                 )}
                 {successMessage === "" ? null : (
-                  <p className="success-messages">{successMessage}</p>
+                  <Alert
+                    alertType="alert-success"
+                    alertMessage={successMessage}
+                  />
                 )}
                 <p style={{ fontSize: "18px" }}>
                   <span style={{ color: "red" }}>{maxChars - charCounts}</span>{" "}

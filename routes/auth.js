@@ -8,7 +8,7 @@ const auth = require("../middleware/auth");
 const User = require("../models/User");
 
 /*
-    GET USER,
+    CHECK USER,
     Access Public
 */
 Router.get("/:username", async (req, res) => {
@@ -23,9 +23,7 @@ Router.get("/:username", async (req, res) => {
       res.json({ exist: true });
     }
   } catch (err) {
-    console.error(err.message);
-    throw err;
-    //res.status(500).json({ error: [{ msg: "Server Error" }] });
+    res.status(500).json({ error: [{ msg: "Server Error" }] });
   }
 });
 
@@ -56,7 +54,7 @@ Router.post(
       .isLength({
         min: 5,
       })
-      .custom((value) => !/\s/.test(value)),
+      .custom((value) => !/\s/.test(value)), //space free or not
     check(
       "password",
       "Password have to be minimum 6 characters and valid"

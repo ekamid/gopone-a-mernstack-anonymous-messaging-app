@@ -23,7 +23,6 @@ Router.get("/", auth, async (req, res) => {
     GET messages in reverse,
     Access Private
 */
-
 Router.get("/reverse", auth, async (req, res) => {
   try {
     const messages = await (
