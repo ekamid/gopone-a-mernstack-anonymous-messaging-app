@@ -1,4 +1,4 @@
-# Simple MERN Stact Annonymmous Messaging Application
+# A MERN stack Annonymmous Messaging Application
 
 ## What is in the Repo
 
