@@ -1,4 +1,4 @@
-# Simple ReactJS Bookstore Cart Application
+# Simple MERN Stact Annonymmous Messaging Application
 
 ## What is in the Repo
 
